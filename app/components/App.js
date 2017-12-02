@@ -13,7 +13,7 @@ const App = () => (
 
 export default App;
 
-/*
+ /*
  class App extends React.Component {
  render() {
  return (
@@ -25,4 +25,5 @@ export default App;
  </div>
  );
  }
- }*/
+ }
+ */

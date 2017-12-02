@@ -6,6 +6,11 @@
     "react/prefer-stateless-function": [0]
   },
   "globals": {
-    "document": true
+    "document": true,
+    "fetch": false,
+    "sessionStorage": false,
+    "describe": false,
+    "it": false,
+    "expect": false
   }
 }

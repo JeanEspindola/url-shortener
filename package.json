@@ -1,0 +1,59 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "A react application to shorten url.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server",
+    "test": "jest",
+    "test-coverage": "jest --coverage",
+    "test-codecov": "jest && codecov",
+    "lint": "eslint app/;exit 0"
+  },
+  "jest": {
+    "setupFiles": [
+      "./src/shim.js",
+      "./src/setupTests.js"
+    ],
+    "collectCoverageFrom": ["app/**/*.js"],
+    "coveragePathIgnorePatterns": ["<rootDir>/app/index.js"],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeanEspindola/url-shortener.git"
+  },
+  "author": "Jean Espindola",
+  "license": "MIT",
+  "homepage": "https://github.com/JeanEspindola/url-shortener#readme",
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.1",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "html-webpack-plugin": "^2.30.1",
+    "jest": "^21.2.1",
+    "react-test-renderer": "^16.0.0",
+    "webpack": "^3.7.1",
+    "webpack-dev-server": "^2.9.2"
+  }
+}

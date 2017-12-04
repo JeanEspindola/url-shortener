@@ -12,18 +12,3 @@ const App = () => (
 );
 
 export default App;
-
- /*
- class App extends React.Component {
- render() {
- return (
- <div>
- <Header />
-
- <LinkInputForm />
-
- </div>
- );
- }
- }
- */

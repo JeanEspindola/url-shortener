@@ -6,6 +6,6 @@ const app = express();
 
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
-app.use('http://localhost:8080/shorten', proxy('https://impraise-shorty.herokuapp.com/shorten'));
+app.use('http://localhost:8080', proxy('https://impraise-shorty.herokuapp.com'));
 
 module.exports = app;

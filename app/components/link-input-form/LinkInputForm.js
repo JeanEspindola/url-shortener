@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { createShortenUrl } from '../../actions/linkActions';
+import createShortenUrl from '../../actions/linkActions';
 
 class LinkInputForm extends Component {
   constructor(props) {
@@ -64,11 +64,9 @@ class LinkInputForm extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onCreateShortenUrl: (url) => dispatch(createShortenUrl(url))
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  onCreateShortenUrl: url => dispatch(createShortenUrl(url)),
+});
 
 LinkInputForm.propTypes = {
   onCreateShortenUrl: PropTypes.func.isRequired,

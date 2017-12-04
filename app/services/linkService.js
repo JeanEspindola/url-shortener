@@ -16,6 +16,4 @@ const requestCreateShortenLink = (url) => {
   });
 };
 
-export {
-  requestCreateShortenLink,
-};
+export default requestCreateShortenLink;

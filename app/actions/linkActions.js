@@ -10,11 +10,11 @@ const createShortenUrl = (url) => {
   return (dispatch) => {
 
     requestCreateShortenLink(url)
-      .then(console.log('sucess'))
-      .catch(console.log('erroe'));
+      .then()
+      .catch();
   }
 };
 
 export {
-  createShortenUrl
+  createShortenUrl,
 }

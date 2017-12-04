@@ -45,7 +45,7 @@ class LinkInputForm extends Component {
           <input
             type="text"
             className="form__input"
-            style={{width: 400}}
+            style={{ width: 400 }}
             placeholder="Paste the url here."
             value={url}
             onChange={this.onChangeUrl}

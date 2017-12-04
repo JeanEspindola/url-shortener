@@ -8,15 +8,14 @@ const requestCreateShortenLink = (url) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      mode: 'no-cors'
+      mode: 'no-cors',
     },
     body: JSON.stringify({
-      url: url
-    })
+      url,
+    }),
   });
-
 };
 
 export {
-  requestCreateShortenLink
+  requestCreateShortenLink,
 };

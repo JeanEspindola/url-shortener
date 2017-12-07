@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import createShortenUrl from '../../actions/linkActions';
 
-class LinkInputForm extends Component {
+class LinkInput extends Component {
   constructor(props) {
     super(props);
 
@@ -27,11 +27,7 @@ class LinkInputForm extends Component {
       return;
     }
 
-    const urlData = {
-      url,
-    };
-
-    this.props.onCreateShortenUrl(urlData);
+    this.props.onCreateShortenUrl(url);
 
     this.setState({ url: '' });
   };
@@ -50,12 +46,12 @@ class LinkInputForm extends Component {
             value={url}
             onChange={this.onChangeUrl}
             name="url"
-          />
+            />
           <button
             className={`button button--primary form__button ${buttonClass}`}
             type="submit"
             disabled={!url}
-          >
+            >
             Shorten this link
           </button>
         </form>
@@ -68,8 +64,8 @@ const mapDispatchToProps = dispatch => ({
   onCreateShortenUrl: url => dispatch(createShortenUrl(url)),
 });
 
-LinkInputForm.propTypes = {
+LinkInput.propTypes = {
   onCreateShortenUrl: PropTypes.func.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(LinkInputForm);
+export default connect(null, mapDispatchToProps)(LinkInput);

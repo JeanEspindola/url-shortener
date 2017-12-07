@@ -1,5 +1,5 @@
 import React from 'react';
-import LinkInputForm from './Link-input/LinkInput';
+import LinkInput from './Link-input/LinkInput';
 import Header from './Header/Header';
 
 const App = () => (

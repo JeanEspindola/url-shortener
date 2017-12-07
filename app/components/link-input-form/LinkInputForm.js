@@ -27,11 +27,7 @@ class LinkInputForm extends Component {
       return;
     }
 
-    const urlData = {
-      url,
-    };
-
-    this.props.onCreateShortenUrl(urlData);
+    this.props.onCreateShortenUrl(url);
 
     this.setState({ url: '' });
   };

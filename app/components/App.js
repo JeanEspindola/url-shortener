@@ -1,5 +1,5 @@
 import React from 'react';
-import LinkInput from './Link-input/LinkInput';
+import LinkInput from './Link-Input/LinkInput';
 import Header from './Header/Header';
 
 const App = () => (

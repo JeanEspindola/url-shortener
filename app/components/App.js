@@ -1,14 +1,19 @@
 import React from 'react';
-import LinkInput from './Link-input/LinkInput';
+import { Grid } from 'react-bootstrap';
+import LinkInput from './Link-Input/LinkInput';
+import LinkList from './Link-List/LinkList';
 import Header from './Header/Header';
 
 const App = () => (
-  <div>
+  <Grid fluid>
+
     <Header />
 
     <LinkInput />
 
-  </div>
+    <LinkList />
+
+  </Grid>
 );
 
 export default App;

@@ -1,11 +1,16 @@
 import React from 'react';
+import { Row, Col } from 'react-bootstrap';
 
 const Header = () => (
   <header className="header">
-    <div>
-      <h1 className="header__logo">Shooooort</h1>
-      <span className="header__text">The link shortener with a long name</span>
-    </div>
+    <Row>
+      <Col md={8}>
+        <h1 className="header__logo">Shooooort</h1>
+      </Col>
+      <Col md={4}>
+        <h6 className="header__text">The link shortener with a long name</h6>
+      </Col>
+    </Row>
   </header>
 );
 

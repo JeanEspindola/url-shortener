@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import createShortenUrl from '../../actions/linkActions';
+import createShortenUrl from '../../actions/linkSubmitActions';
 
 class LinkInput extends Component {
   constructor(props) {

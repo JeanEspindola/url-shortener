@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
-import getLinkList from './linkReducer';
+import { listItems, listIsLoading } from './linkListReducer';
 
 export default combineReducers({
-  getLinkList,
+  listItems,
+  listIsLoading,
 });

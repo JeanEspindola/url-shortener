@@ -1,4 +1,13 @@
+import { SUBMIT_IS_LOADING } from '../utils/constants';
+
 import { requestGetStatus, requestCreateShortenLink } from '../services/linkService';
+
+export function submitIsLoading(bool) {
+  return {
+    type: SUBMIT_IS_LOADING,
+    isLoading: bool,
+  };
+}
 
 const createUrlSuccess = (shortCode) => {
   requestGetStatus(shortCode)
@@ -7,17 +16,16 @@ const createUrlSuccess = (shortCode) => {
     .catch(err => console.log(`err: ${err}`));
 };
 
-const createError = (err) => {
-  console.log(`parsing error: ${err}`);
-};
-
-const createShortenUrl = (url) => {
+export function createShortenUrl(url) {
   return (dispatch) => {
+    dispatch(submitIsLoading(true));
     requestCreateShortenLink(url)
+      .then(function(response) {
+        dispatch(submitIsLoading(false));
+        return response;
+      })
       .then(response => response.json())
       .then(json => createUrlSuccess(json.shortcode))
-      .catch(err => createError(err));
+      .catch(() => submitIsLoading(false));
   };
-};
-
-export default createShortenUrl;
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import createShortenUrl from '../../actions/linkSubmitActions';
+import { createShortenUrl } from '../../actions/linkSubmitActions';
 
 class LinkInput extends Component {
   constructor(props) {
@@ -34,6 +34,10 @@ class LinkInput extends Component {
   };
 
   render() {
+    if (this.props.isLoading) {
+      return <p>Loading URL…</p>;
+    }
+
     const { url } = this.state;
     const buttonClass = url ? '' : 'disable';
     return (
@@ -62,13 +66,19 @@ class LinkInput extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    isLoading: state.submitIsLoading,
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   onCreateShortenUrl: url => dispatch(createShortenUrl(url)),
 });
 
 LinkInput.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
   onCreateShortenUrl: PropTypes.func.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(LinkInput);
+export default connect(mapStateToProps, mapDispatchToProps)(LinkInput);

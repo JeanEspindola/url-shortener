@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { listFetchData } from '../../actions/linkListActions';
 
 class LinkList extends Component {
-
   componentDidMount() {
     this.props.fetchData('http://5826ed963900d612000138bd.mockapi.io/items');
   }
@@ -16,7 +15,7 @@ class LinkList extends Component {
 
     return (
       <ul>
-        {this.props.items.map((item) => (
+        {this.props.items.map(item => (
           <li key={item.id}>
             {item.label}
           </li>

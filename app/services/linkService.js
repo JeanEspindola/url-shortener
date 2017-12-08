@@ -20,7 +20,7 @@ const requestGetStatus = (shortenUrl) => {
   });
 };
 
-export  {
+export {
   requestCreateShortenLink,
-  requestGetStatus
+  requestGetStatus,
 };

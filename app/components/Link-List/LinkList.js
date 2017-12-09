@@ -25,18 +25,14 @@ class LinkList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    items: state.listItems,
-    isLoading: state.listIsLoading,
-  };
-};
+const mapStateToProps = state => ({
+  items: state.listItems,
+  isLoading: state.listIsLoading,
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchData: url => dispatch(listFetchData(url)),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  fetchData: url => dispatch(listFetchData(url)),
+});
 
 LinkList.propTypes = {
   isLoading: PropTypes.bool.isRequired,

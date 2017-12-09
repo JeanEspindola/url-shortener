@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchData: url => dispatch(listFetchData(url)),
+  fetchData: url => dispatch(listFetchData()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkList);

@@ -50,12 +50,12 @@ class LinkSubmit extends Component {
               value={url}
               onChange={this.onChangeUrl}
               name="url"
-              />
+            />
             <button
               className={`button button--primary form__button ${buttonClass}`}
               type="submit"
               disabled={!url}
-              >
+            >
               Shorten this link
             </button>
           </form>

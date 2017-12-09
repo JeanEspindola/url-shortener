@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { createShortenUrl } from '../../actions/linkSubmitActions';
 
-class LinkInput extends Component {
+class LinkSubmit extends Component {
   constructor(props) {
     super(props);
 
@@ -35,7 +33,7 @@ class LinkInput extends Component {
 
   render() {
     if (this.props.isLoading) {
-      return <p>Loading URL…</p>;
+      return <p>Shortening URL…</p>;
     }
 
     const { url } = this.state;
@@ -66,19 +64,10 @@ class LinkInput extends Component {
     );
   }
 }
-const mapStateToProps = (state) => {
-  return {
-    isLoading: state.submitIsLoading,
-  };
-};
 
-const mapDispatchToProps = dispatch => ({
-  onCreateShortenUrl: url => dispatch(createShortenUrl(url)),
-});
-
-LinkInput.propTypes = {
+LinkSubmit.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   onCreateShortenUrl: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LinkInput);
+export default LinkSubmit;

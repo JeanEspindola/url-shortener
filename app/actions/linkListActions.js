@@ -1,4 +1,5 @@
 import { LIST_IS_LOADING, LIST_FETCH_DATA_SUCCESS } from '../utils/constants';
+import { loadStoredLinks } from '../utils/sessionStorage';
 
 export function listIsLoading(bool) {
   return {
@@ -14,22 +15,13 @@ export function listFetchDataSuccess(items) {
   };
 }
 
-export function listFetchData(url) {
+export function listFetchData() {
   return (dispatch) => {
     dispatch(listIsLoading(true));
 
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
+    const listItems = loadStoredLinks();
 
-        dispatch(listIsLoading(false));
-
-        return response;
-      })
-      .then(response => response.json())
-      .then(items => dispatch(listFetchDataSuccess(items)))
-      .catch();
+    dispatch(listIsLoading(false));
+    dispatch(listFetchDataSuccess(listItems));
   };
 }

@@ -1,6 +1,6 @@
-import { SUBMIT_IS_LOADING, SUBMIT_REQUEST_SUCCESS } from '../utils/constants';
+import { SUBMIT_IS_LOADING } from '../utils/constants';
 
-export function submitIsLoading(state = false, action) {
+function submitIsLoading(state = false, action) {
   switch (action.type) {
     case SUBMIT_IS_LOADING:
       return action.isLoading;
@@ -9,3 +9,5 @@ export function submitIsLoading(state = false, action) {
       return state;
   }
 }
+
+export default submitIsLoading;

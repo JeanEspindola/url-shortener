@@ -35,7 +35,7 @@ class LinkInput extends Component {
 
   render() {
     if (this.props.isLoading) {
-      return <p>Loading URL…</p>;
+      return <p>Shortening URL…</p>;
     }
 
     const { url } = this.state;
@@ -66,11 +66,9 @@ class LinkInput extends Component {
     );
   }
 }
-const mapStateToProps = (state) => {
-  return {
-    isLoading: state.submitIsLoading,
-  };
-};
+const mapStateToProps = state => ({
+  isLoading: state.submitIsLoading,
+});
 
 const mapDispatchToProps = dispatch => ({
   onCreateShortenUrl: url => dispatch(createShortenUrl(url)),

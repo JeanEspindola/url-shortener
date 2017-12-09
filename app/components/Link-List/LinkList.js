@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { listFetchData } from '../../actions/linkListActions';
 
 class LinkList extends Component {
   componentDidMount() {
@@ -25,19 +23,10 @@ class LinkList extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  items: state.listItems,
-  isLoading: state.listIsLoading,
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchData: url => dispatch(listFetchData(url)),
-});
-
 LinkList.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   items: PropTypes.arrayOf(PropTypes.any).isRequired,
   fetchData: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LinkList);
+export default LinkList;

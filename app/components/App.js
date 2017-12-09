@@ -4,16 +4,25 @@ import LinkSubmit from './Link-Submit/LinkSubmitContainer';
 import LinkList from './Link-List/LinkListContainer';
 import Header from './Header/Header';
 
+const style = {
+  maxWidth: 700,
+  height: '100vw',
+  backgroundColor: '#EAEAEA'
+};
+
 const App = () => (
-  <Grid fluid>
+  <div
+    style={style}>
+    <Grid fluid>
 
-    <Header />
+      <Header />
 
-    <LinkSubmit />
+      <LinkSubmit />
 
-    <LinkList />
+      <LinkList />
 
-  </Grid>
+    </Grid>
+  </div>
 );
 
 export default App;

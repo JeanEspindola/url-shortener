@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button, Form, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+
+const inputStyle = {
+  color: '#555555',
+  backgroundColor: '#E0E0E0',
+  width: 500
+};
+
+const buttonStyle = {
+  backgroundColor: '#EB4A42'
+};
 
 class LinkSubmit extends Component {
   constructor(props) {
@@ -41,24 +51,28 @@ class LinkSubmit extends Component {
     return (
       <Row>
         <Col md={12}>
-          <form className="form" onSubmit={this.onSearch}>
-            <input
-              type="text"
-              className="form__input"
-              style={{ width: 400 }}
-              placeholder="Paste the url here."
-              value={url}
-              onChange={this.onChangeUrl}
-              name="url"
-            />
-            <button
+          <Form inline className="form" onSubmit={this.onSearch}>
+            <FormGroup controlId="formInlineEmail">
+              <FormControl
+                type="text"
+                className="form__input"
+                style={inputStyle}
+                placeholder="Paste the url here."
+                value={url}
+                onChange={this.onChangeUrl}
+                name="url"
+              />
+            </FormGroup>
+            {' '}
+            <Button
               className={`button button--primary form__button ${buttonClass}`}
               type="submit"
               disabled={!url}
+              style={buttonStyle}
             >
               Shorten this link
-            </button>
-          </form>
+            </Button>
+          </Form>
         </Col>
       </Row>
     );

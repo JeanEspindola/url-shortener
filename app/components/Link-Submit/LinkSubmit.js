@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button, Form, FormGroup, FormControl } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+
+const containerStyle = {
+  marginBottom: 40,
+};
+
+const inputStyle = {
+  color: '#555555',
+  backgroundColor: '#E0E0E0',
+  width: 500,
+};
+
+const buttonStyle = {
+  float: 'right',
+  backgroundColor: '#EB4A42',
+};
+
+const formGroupStyle = {
+  display: 'inline-block',
+};
 
 class LinkSubmit extends Component {
   constructor(props) {
@@ -39,28 +58,37 @@ class LinkSubmit extends Component {
     const { url } = this.state;
     const buttonClass = url ? '' : 'disable';
     return (
-      <Row>
-        <Col md={12}>
-          <form className="form" onSubmit={this.onSearch}>
-            <input
-              type="text"
-              className="form__input"
-              style={{ width: 400 }}
-              placeholder="Paste the url here."
-              value={url}
-              onChange={this.onChangeUrl}
-              name="url"
-            />
-            <button
-              className={`button button--primary form__button ${buttonClass}`}
-              type="submit"
-              disabled={!url}
-            >
-              Shorten this link
-            </button>
-          </form>
-        </Col>
-      </Row>
+      <div
+        className="linkSubmit"
+        style={containerStyle}
+      >
+        <Row>
+          <Col xs={12}>
+            <Form inline className="linkSubmit__form" onSubmit={this.onSearch}>
+              <FormGroup controlId="formInlineEmail" style={formGroupStyle}>
+                <FormControl
+                  type="text"
+                  className="linkSubmit__form__input"
+                  style={inputStyle}
+                  placeholder="Paste the url here."
+                  value={url}
+                  onChange={this.onChangeUrl}
+                  name="url"
+                />
+              </FormGroup>
+              {' '}
+              <Button
+                className={`linkSubmit__form__button ${buttonClass}`}
+                type="submit"
+                disabled={!url}
+                style={buttonStyle}
+              >
+                Shorten this link
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </div>
     );
   }
 }

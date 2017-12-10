@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Row, Col, Button, Form, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
+const containerStyle = {
+  marginBottom: 40
+};
+
 const inputStyle = {
   color: '#555555',
   backgroundColor: '#E0E0E0',
@@ -49,32 +53,37 @@ class LinkSubmit extends Component {
     const { url } = this.state;
     const buttonClass = url ? '' : 'disable';
     return (
-      <Row>
-        <Col md={12}>
-          <Form inline className="form" onSubmit={this.onSearch}>
-            <FormGroup controlId="formInlineEmail">
-              <FormControl
-                type="text"
-                className="form__input"
-                style={inputStyle}
-                placeholder="Paste the url here."
-                value={url}
-                onChange={this.onChangeUrl}
-                name="url"
-              />
-            </FormGroup>
-            {' '}
-            <Button
-              className={`button button--primary form__button ${buttonClass}`}
-              type="submit"
-              disabled={!url}
-              style={buttonStyle}
-            >
-              Shorten this link
-            </Button>
-          </Form>
-        </Col>
-      </Row>
+      <div
+        className="linkSubmit"
+        style={containerStyle}
+      >
+        <Row>
+          <Col md={12}>
+            <Form inline className="linkSubmit__form" onSubmit={this.onSearch}>
+              <FormGroup controlId="formInlineEmail">
+                <FormControl
+                  type="text"
+                  className="linkSubmit__form__input"
+                  style={inputStyle}
+                  placeholder="Paste the url here."
+                  value={url}
+                  onChange={this.onChangeUrl}
+                  name="url"
+                />
+              </FormGroup>
+              {' '}
+              <Button
+                className={`linkSubmit__form__button ${buttonClass}`}
+                type="submit"
+                disabled={!url}
+                style={buttonStyle}
+              >
+                Shorten this link
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </div>
     );
   }
 }

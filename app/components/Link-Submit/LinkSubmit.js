@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
-import { Row, Col, Button, Form, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import { Row, Col, Button, Form, FormGroup, FormControl } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 const containerStyle = {
-  marginBottom: 40
+  marginBottom: 40,
 };
 
 const inputStyle = {
   color: '#555555',
   backgroundColor: '#E0E0E0',
-  width: 500
+  width: 500,
 };
 
 const buttonStyle = {
-  backgroundColor: '#EB4A42'
+  float: 'right',
+  backgroundColor: '#EB4A42',
+};
+
+const formGroupStyle = {
+  display: 'inline-block',
 };
 
 class LinkSubmit extends Component {
@@ -58,9 +63,9 @@ class LinkSubmit extends Component {
         style={containerStyle}
       >
         <Row>
-          <Col md={12}>
+          <Col xs={12}>
             <Form inline className="linkSubmit__form" onSubmit={this.onSearch}>
-              <FormGroup controlId="formInlineEmail">
+              <FormGroup controlId="formInlineEmail" style={formGroupStyle}>
                 <FormControl
                   type="text"
                   className="linkSubmit__form__input"

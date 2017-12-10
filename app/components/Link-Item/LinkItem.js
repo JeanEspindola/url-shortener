@@ -14,19 +14,22 @@ const shortenedPrefixStyle = {
   color: '#555555',
 };
 
+const itemStyle = {
+  marginBottom: 10,
+};
+
 class LinkItem extends Component {
   render() {
-
     return (
-      <div className="linkItem">
+      <div className="linkItem" style={itemStyle}>
         <Row className="linkItem__shortened">
-          <Col md={12}>
+          <Col xs={12}>
             <span style={shortenedPrefixStyle}>https://impraise-shorty.herokuapp.com/</span>
             <span style={shortCodeStyle}>{this.props.shortCode}</span>
           </Col>
         </Row>
         <Row>
-          <Col md={12} className="linkItem__url">
+          <Col xs={12} className="linkItem__url">
             <span style={urlStyle}>{this.props.url}</span>
           </Col>
         </Row>
@@ -37,7 +40,7 @@ class LinkItem extends Component {
 
 LinkItem.propTypes = {
   shortCode: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired
+  url: PropTypes.string.isRequired,
 };
 
 export default LinkItem;

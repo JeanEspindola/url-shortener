@@ -7,12 +7,13 @@ import Header from './Header/Header';
 const style = {
   maxWidth: 700,
   height: '100vw',
-  backgroundColor: '#EAEAEA'
+  backgroundColor: '#EAEAEA',
 };
 
 const App = () => (
   <div
-    style={style}>
+    style={style}
+  >
     <Grid fluid>
 
       <Header />

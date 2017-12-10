@@ -6,19 +6,17 @@ import LinkItem from '../Link-Item/LinkItem';
 const textStyle = {
   color: '#555555',
   fontSize: 22,
-  //fontFamily: Roboto,
-  //fontStyle: normal,
-  //fontWeight: 300
 };
 
 const tableHeadingStyle = {
   color: '#BFBFBF',
   fontSize: 14,
-  marginBottom: 10
+  marginBottom: 10,
+  textTransform: 'uppercase',
 };
 
 const titleStyle = {
-  marginBottom: 10
+  marginBottom: 10,
 };
 
 class LinkList extends Component {
@@ -30,7 +28,7 @@ class LinkList extends Component {
     if (this.props.isLoading) {
       return (
         <Row>
-          <Col md={12}><p style={textStyle}>Loading Generated Links…</p></Col>
+          <Col xs={12}><p style={textStyle}>Loading Generated Links…</p></Col>
         </Row>
       );
     }
@@ -38,7 +36,7 @@ class LinkList extends Component {
     if (this.props.items.length === 0) {
       return (
         <Row>
-          <Col md={12}><p style={textStyle}>There are no links previously shortened.</p></Col>
+          <Col xs={12}><p style={textStyle}>There are no links previously shortened.</p></Col>
         </Row>
       );
     }
@@ -46,24 +44,24 @@ class LinkList extends Component {
     return (
       <div className="linkList">
         <Row className="linkList_title" style={titleStyle}>
-          <Col md={12}>
+          <Col xs={12}>
             <p style={textStyle}>Previously Shortened by you.</p>
           </Col>
         </Row>
         <Row className="linkList_tableHeading" style={tableHeadingStyle}>
-          <Col md={6}>
-            <span>LINK</span>
+          <Col xs={8}>
+            <span>Link</span>
           </Col>
-          <Col md={2}>
-            <span>VISITS</span>
+          <Col xs={2}>
+            <span>Visits</span>
           </Col>
-          <Col md={4}>
-            <span>LAST VISITED</span>
+          <Col xs={2}>
+            <span>Last Visited</span>
           </Col>
         </Row>
         {this.props.items.map(item => (
           <div key={item.shortCode}>
-            <LinkItem shortCode={item.shortCode} url={item.url}/>
+            <LinkItem shortCode={item.shortCode} url={item.url} />
           </div>
         ))}
       </div>
